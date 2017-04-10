@@ -1,0 +1,6 @@
+mac=34-AD-BE-43-FE-98
+ip=192.168.21.210
+
+mdHost=192.168.21.100
+mdPort=80
+mdAuth=

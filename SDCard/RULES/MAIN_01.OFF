@@ -1,0 +1,7 @@
+input=31
+output=TL_FAN
+
+event=press
+condition=rTL_MAIN&!rTL_TMR
+action=on
+timeout=300000

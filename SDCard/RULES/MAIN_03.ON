@@ -1,0 +1,7 @@
+input=31
+output=TL_TMR
+
+event=press
+condition=!rTL_MAIN
+action=on
+timeout=180000

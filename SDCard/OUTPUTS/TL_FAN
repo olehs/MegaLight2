@@ -1,0 +1,7 @@
+pin=16
+pwm=false
+invert=true
+on=false
+value=
+#save=state/value/both
+save=state

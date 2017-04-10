@@ -1,0 +1,9 @@
+pin=33
+#pullup=intup/extup/extdown
+pullup=extdown
+bounceint=1
+holdint=700
+repeat=
+repeatint=
+dclickint=
+prevclick=true

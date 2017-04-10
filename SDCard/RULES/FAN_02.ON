@@ -1,0 +1,5 @@
+input=32
+output=TL_FAN
+
+event=hold
+action=on

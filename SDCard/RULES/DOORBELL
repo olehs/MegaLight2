@@ -1,0 +1,6 @@
+input=DOORBELL
+output=DOORBELL
+
+event=press
+action=on
+timeout=3000

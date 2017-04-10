@@ -1,0 +1,6 @@
+input=32
+output=TL_FAN
+
+event=press
+condition=rTL_FAN
+action=off
