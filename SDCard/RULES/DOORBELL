@@ -1,6 +1,9 @@
 input=DOORBELL
 output=DOORBELL
 
+#event=press/release/hold/click/lclick/dclick/repeat
 event=press
 action=on
+condition=
+param=
 timeout=3000
