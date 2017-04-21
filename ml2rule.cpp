@@ -6,6 +6,42 @@ extern EventManager outputEM;
 extern OutputList outputList;
 extern InputList inputList;
 
+uint32_t parseTime(const char* v) {
+  String s = v;
+  s.trim();
+  if (!s.length())
+    return 0;
+  s.toUpperCase();
+
+  uint32_t r = 0;
+  byte i = 0;
+
+  do {
+    char c = s[i];
+    if (!c) {
+      break;
+      
+    } else if (c >= '0' && c <= '9') {
+      ++i;
+      
+    } else {
+      if (c == 'D') {
+        r += strtoul(s.substring(0, i).c_str(), NULL, 10) * 24 * 60 * 60 * 1000;
+      } else if (c == 'H') {
+        r += strtoul(s.substring(0, i).c_str(), NULL, 10) * 60 * 60 * 1000;
+      } else if (c == 'M') {
+        r += strtoul(s.substring(0, i).c_str(), NULL, 10) * 60 * 1000;
+      } else if (c == 'S') {
+        r += strtoul(s.substring(0, i).c_str(), NULL, 10) * 1000;
+      }
+      s.remove(0, i + 1);
+      i = 0;
+    }
+  } while (true);
+
+  return r + strtoul(s.c_str(), NULL, 10);
+}
+
 int eval_token(char *expr)
 {
   String s = expr;
@@ -265,10 +301,10 @@ ML2Rule *ML2Rule::fromFile(const String &path) {
         rule->eventAction(currEvent).action = OutputAction::IncValue;
 
     } else if (cfg.nameIs("param") && (currEvent != ButtonEvent::EventsCount)) {
-      rule->eventAction(currEvent).param = strtoul(cfg.getValue(), NULL, 10);
+      rule->eventAction(currEvent).param = parseTime(cfg.getValue());
 
     } else if (cfg.nameIs("timeout") && (currEvent != ButtonEvent::EventsCount)) {
-      rule->eventAction(currEvent).timeout = strtoul(cfg.getValue(), NULL, 10);
+      rule->eventAction(currEvent).timeout = parseTime(cfg.getValue());
 
     } else if (cfg.nameIs("condition") && (currEvent != ButtonEvent::EventsCount)) {
       rule->eventAction(currEvent).condition = cfg.getValue();

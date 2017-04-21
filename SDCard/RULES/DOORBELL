@@ -1,6 +1,8 @@
 input=DOORBELL
 output=DOORBELL
 
+final=false
+
 #event=press/release/hold/click/lclick/dclick/repeat
 event=press
 action=on

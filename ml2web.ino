@@ -65,11 +65,11 @@ void stateCmd(WebServer &server, WebServer::ConnectionType type, char *url_tail,
       else if (name[0] == 'o')
         on = atoi(value);
       else if (name[0] == 'v')
-        state = strtoul(value, NULL, 10);
+        state = atoi(value);
       else if (name[0] == 'i')
         inc = atoi(value);
       else if (name[0] == 't')
-        timeout = strtoul(value, NULL, 10);
+        timeout = parseTime(value);
     }
   }
 

@@ -10,6 +10,8 @@
 #define ID_SIZE 13
 #define PWM_HIGH 255
 
+uint32_t parseTime(const char* v);
+
 class OutputEventParam : public EventParam
 {
   public:
