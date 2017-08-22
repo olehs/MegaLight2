@@ -50,10 +50,14 @@ class ML2Output
     inline bool pwm() {
       return m_pwm;
     }
+    inline bool noreport() {
+      return m_noreport;
+    }
 
     void setPin(byte pin);
     void setPWM(bool on);
     void setInvert(bool inv);
+    void setNoreport(bool no);
 
     inline byte value() {
       return m_value;
@@ -88,6 +92,7 @@ class ML2Output
     byte m_value;
     bool m_on;
     bool m_invert;
+    bool m_noreport;
 
     OutputStateSave::Save m_saveState;
     uint32_t m_timeout;

@@ -17,6 +17,7 @@
 #define ML2O_FLAG_PWM          0x04
 #define ML2O_FLAG_SAVE_STATE   0x08
 #define ML2O_FLAG_SAVE_VALUE   0x10
+#define ML2O_FLAG_NO_REPORT    0x20
 #define ML2O_FLAG_SAVE_BOTH    ( ML2O_FLAG_SAVE_STATE | ML2O_FLAG_SAVE_VALUE )
 #define ML2O_FLAG_SAVE         ( ML2O_FLAG_SAVE_STATE | ML2O_FLAG_SAVE_VALUE | ML2O_FLAG_SAVE_BOTH )
 
@@ -231,6 +232,7 @@ int loadOutputEEPROM(ML2Output *output, int addr) {
   output->setPin(storageOutput.pin);
   output->setPWM(storageOutput.flags & ML2O_FLAG_PWM);
   output->setInvert(storageOutput.flags & ML2O_FLAG_INVERT);
+  output->setNoreport(storageOutput.flags & ML2O_FLAG_NO_REPORT);
   switch (storageOutput.flags & ML2O_FLAG_SAVE) {
     case ML2O_FLAG_SAVE_STATE:
       output->setSaveState(OutputStateSave::State);
@@ -267,6 +269,8 @@ int saveOutputEEPROM(ML2Output *output, int addr) {
     storageOutput.flags |= ML2O_FLAG_INVERT;
   if (output->pwm())
     storageOutput.flags |= ML2O_FLAG_PWM;
+  if (output->noreport())
+    storageOutput.flags |= ML2O_FLAG_NO_REPORT;
 
   switch (output->saveState()) {
     case OutputStateSave::State:

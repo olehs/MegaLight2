@@ -240,6 +240,9 @@ int setupOutputsSD() {
       } else if (cfg.nameIs("invert")) {
         b->setInvert(cfg.getBooleanValue());
 
+      } else if (cfg.nameIs("noreport")) {
+        b->setNoreport(cfg.getBooleanValue());
+
       } else if (cfg.nameIs("on")) {
         cfg.getBooleanValue() ? b->setOn() : b->setOff();
 

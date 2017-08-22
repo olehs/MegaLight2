@@ -12,6 +12,7 @@ ML2Output::ML2Output(const String &id)
   , m_dim_v0(0)
   , m_dim_v1(0)
   , m_pwm(false)
+  , m_noreport(false)
   , m_on(false)
   , m_invert(false)
   , m_saveState(OutputStateSave::None)
@@ -31,6 +32,11 @@ void ML2Output::setPWM(bool on)
 {
   m_pwm = on;
   setupPin();
+}
+
+void ML2Output::setNoreport(bool no)
+{
+  m_noreport = no;
 }
 
 void ML2Output::setValue(byte value, uint32_t timeout)
@@ -212,7 +218,7 @@ void ML2Output::updatePin(uint32_t timeout, bool doEmit)
 
 void ML2Output::emitState()
 {
-  if (externalEventsEnabled)
+  if (externalEventsEnabled && !this->m_noreport)
     externalEM.queueEvent(0, new EventParam(this));
 }
 
