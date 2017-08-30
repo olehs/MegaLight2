@@ -1,10 +1,2 @@
 * text=auto
-
-*.md text eol=crlf
-*.txt text eol=crlf
-*.bat text eol=crlf
-*.ino text eol=crlf
-*.xml text eol=crlf
-*.cpp text eol=crlf
-*.h text eol=crlf
-*. text eol=crlf
+* text eol=crlf
