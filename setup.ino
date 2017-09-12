@@ -4,16 +4,16 @@ Scheduler runner;
 
 Task t1(1, TASK_FOREVER, &buttonLoop, &runner);
 Task t2(1, TASK_FOREVER, &relayLoop, &runner);
-Task t3(1, TASK_FOREVER, &webLoop, &runner);
-Task t4(1, TASK_FOREVER, &externalLoop, &runner);
+Task t3(1, TASK_FOREVER, &externalLoop, &runner);
+Task t4(1, TASK_FOREVER, &webLoop, &runner);
 
 void buttonLoop() {
   inputList.check();
-  outputEM.processAllEvents();
+  inputEM.processAllEvents();
 }
 
 void relayLoop() {
-  inputEM.processAllEvents();
+  outputEM.processAllEvents();
   outputList.check();
 }
 
