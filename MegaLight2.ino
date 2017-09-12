@@ -1,3 +1,6 @@
+#define EVENTMANAGER_LISTENER_LIST_SIZE 1
+#define EVENTMANAGER_EVENT_QUEUE_SIZE 16
+
 #include <SPI.h>
 #include <SD.h>
 #include <SDConfigFile.h>
