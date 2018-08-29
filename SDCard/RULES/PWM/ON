@@ -1,0 +1,9 @@
+input=BUTTON
+
+output=LED
+output=DIR
+
+event=click
+condition=!RLED
+action=on
+final=true

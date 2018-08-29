@@ -1,0 +1,5 @@
+pin=8
+pwm=true
+on=false
+value=125
+save=both

@@ -1,0 +1,8 @@
+input=BUTTON
+
+output=LED
+
+event=click
+condition=RLED&VLED=255
+action=off
+final=true

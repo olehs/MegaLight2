@@ -1,0 +1,11 @@
+input=BUTTON
+
+output=DIR
+
+event=hold
+condition=RLED&RDIR&VLED>254
+action=off
+
+event=lclick
+condition=RLED
+action=toggle

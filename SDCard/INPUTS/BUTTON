@@ -1,0 +1,9 @@
+pin=7
+
+pullup=intup
+bounceint=40
+holdint=1000
+repeat=true
+repeatint=200
+dclickint=
+prevclick=true

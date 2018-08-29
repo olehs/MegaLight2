@@ -1,0 +1,8 @@
+input=BUTTON
+
+output=LED
+
+event=repeat
+condition=RLED&RDIR
+action=incvalue
+param=5
