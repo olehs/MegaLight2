@@ -301,7 +301,7 @@ ML2Rule *ML2Rule::fromFile(const String &path) {
         rule->eventAction(currEvent).action = OutputAction::IncValue;
 
     } else if (cfg.nameIs("param") && (currEvent != ButtonEvent::EventsCount)) {
-      rule->eventAction(currEvent).param = parseTime(cfg.getValue());
+      rule->eventAction(currEvent).param = cfg.getIntValue();
 
     } else if (cfg.nameIs("timeout") && (currEvent != ButtonEvent::EventsCount)) {
       rule->eventAction(currEvent).timeout = parseTime(cfg.getValue());
