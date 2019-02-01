@@ -3,6 +3,6 @@ input=BUTTON
 output=LED
 
 event=click
-condition=RLED&VLED=255
+condition=RLED
 action=off
 final=true
